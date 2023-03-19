@@ -1,0 +1,5 @@
+linkedlogics:
+  application:
+    name: test
+  kafka:
+    bootstrap_servers: "localhost:9092"

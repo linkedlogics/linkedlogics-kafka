@@ -5,9 +5,8 @@ import dev.linkedlogics.service.local.QueueSchedulerService;
 
 public class KafkaServiceConfigurer extends ServiceConfigurer {
 	public KafkaServiceConfigurer() {
-		configure(new KafkaQueueService());
-		configure(new KafkaTopicService());
-		configure(new QueueSchedulerService());
+		configure(new KafkaConsumerService());
+		configure(new KafkaPublisherService());
 	}
 }
 
