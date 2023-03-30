@@ -9,7 +9,7 @@ import dev.linkedlogics.service.LinkedLogicsService;
 import dev.linkedlogics.service.ServiceProvider;
 import dev.linkedlogics.service.local.QueueSchedulerService;
 
-public class KafkaServices implements ServiceProvider {
+public class KafkaServices extends ServiceProvider {
 	@Override
 	public List<LinkedLogicsService> getMessagingServices() {
 		return List.of(new KafkaQueueService(), new KafkaConsumerService(), new KafkaPublisherService());
