@@ -7,7 +7,7 @@ import dev.linkedlogics.kafka.service.KafkaPublisherService;
 import dev.linkedlogics.kafka.service.KafkaQueueService;
 import dev.linkedlogics.service.LinkedLogicsService;
 import dev.linkedlogics.service.ServiceProvider;
-import dev.linkedlogics.service.local.QueueSchedulerService;
+import dev.linkedlogics.service.common.QueueSchedulerService;
 
 public class KafkaServices extends ServiceProvider {
 	@Override
