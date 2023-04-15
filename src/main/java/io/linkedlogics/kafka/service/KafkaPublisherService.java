@@ -1,4 +1,4 @@
-package dev.linkedlogics.kafka.service;
+package io.linkedlogics.kafka.service;
 
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
@@ -6,10 +6,10 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import dev.linkedlogics.context.Context;
-import dev.linkedlogics.kafka.repository.KafkaDataSource;
-import dev.linkedlogics.service.PublisherService;
-import dev.linkedlogics.service.ServiceLocator;
+import io.linkedlogics.context.Context;
+import io.linkedlogics.service.PublisherService;
+import io.linkedlogics.service.ServiceLocator;
+import io.linkedlogics.kafka.repository.KafkaDataSource;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

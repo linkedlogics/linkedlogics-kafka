@@ -1,6 +1,6 @@
-package dev.linkedlogics.kafka.service;
+package io.linkedlogics.kafka.service;
 
-import dev.linkedlogics.service.ServiceConfigurer;
+import io.linkedlogics.service.ServiceConfigurer;
 
 public class KafkaServiceConfigurer extends ServiceConfigurer {
 	public KafkaServiceConfigurer() {

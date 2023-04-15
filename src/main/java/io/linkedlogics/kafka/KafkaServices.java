@@ -1,13 +1,13 @@
-package dev.linkedlogics.kafka;
+package io.linkedlogics.kafka;
 
 import java.util.List;
 
-import dev.linkedlogics.kafka.service.KafkaConsumerService;
-import dev.linkedlogics.kafka.service.KafkaPublisherService;
-import dev.linkedlogics.kafka.service.KafkaQueueService;
-import dev.linkedlogics.service.LinkedLogicsService;
-import dev.linkedlogics.service.ServiceProvider;
-import dev.linkedlogics.service.common.QueueSchedulerService;
+import io.linkedlogics.service.LinkedLogicsService;
+import io.linkedlogics.service.ServiceProvider;
+import io.linkedlogics.service.common.QueueSchedulerService;
+import io.linkedlogics.kafka.service.KafkaConsumerService;
+import io.linkedlogics.kafka.service.KafkaPublisherService;
+import io.linkedlogics.kafka.service.KafkaQueueService;
 
 public class KafkaServices extends ServiceProvider {
 	@Override

@@ -1,4 +1,4 @@
-package dev.linkedlogics.kafka.service;
+package io.linkedlogics.kafka.service;
 
 import java.time.Duration;
 
@@ -8,12 +8,12 @@ import org.apache.kafka.clients.consumer.ConsumerRecords;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import dev.linkedlogics.LinkedLogics;
-import dev.linkedlogics.context.Context;
-import dev.linkedlogics.kafka.repository.KafkaDataSource;
-import dev.linkedlogics.service.ConsumerService;
-import dev.linkedlogics.service.ServiceLocator;
-import dev.linkedlogics.service.task.ProcessorTask;
+import io.linkedlogics.LinkedLogics;
+import io.linkedlogics.context.Context;
+import io.linkedlogics.service.ConsumerService;
+import io.linkedlogics.service.ServiceLocator;
+import io.linkedlogics.service.task.ProcessorTask;
+import io.linkedlogics.kafka.repository.KafkaDataSource;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

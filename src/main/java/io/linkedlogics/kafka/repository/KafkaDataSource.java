@@ -1,4 +1,4 @@
-package dev.linkedlogics.kafka.repository;
+package io.linkedlogics.kafka.repository;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -12,8 +12,8 @@ import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 
-import dev.linkedlogics.LinkedLogics;
-import dev.linkedlogics.config.LinkedLogicsConfiguration;
+import io.linkedlogics.LinkedLogics;
+import io.linkedlogics.config.LinkedLogicsConfiguration;
 
 public class KafkaDataSource {
 	private static final String KAFKA = "kafka";

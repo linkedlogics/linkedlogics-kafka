@@ -1,4 +1,4 @@
-package dev.linkedlogics.kafka.service;
+package io.linkedlogics.kafka.service;
 
 import java.time.Duration;
 import java.util.Optional;
@@ -11,8 +11,8 @@ import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 
-import dev.linkedlogics.kafka.repository.KafkaDataSource;
-import dev.linkedlogics.service.QueueService;
+import io.linkedlogics.service.QueueService;
+import io.linkedlogics.kafka.repository.KafkaDataSource;
 
 public class KafkaQueueService implements QueueService {
 	private ConcurrentHashMap<String, Consumer<String, String>> consumers;
