@@ -9,7 +9,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.linkedlogics.context.Context;
 import io.linkedlogics.service.PublisherService;
 import io.linkedlogics.service.ServiceLocator;
-import io.linkedlogics.kafka.repository.KafkaDataSource;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -18,7 +17,7 @@ public class KafkaPublisherService implements PublisherService {
 	private Producer<String, String> kafkaproducer;
 	
 	public KafkaPublisherService() {
-		kafkaproducer = new KafkaDataSource().getProducer();
+		kafkaproducer = new KafkaConnectionService().getProducer();
 	}
 	
 	public void stop() {

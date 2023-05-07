@@ -13,7 +13,6 @@ import io.linkedlogics.context.Context;
 import io.linkedlogics.service.ConsumerService;
 import io.linkedlogics.service.ServiceLocator;
 import io.linkedlogics.service.task.ProcessorTask;
-import io.linkedlogics.kafka.repository.KafkaDataSource;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -23,7 +22,7 @@ public class KafkaConsumerService implements ConsumerService, Runnable {
 	private Consumer<String, String> kafkaConsumer;
 	
 	public KafkaConsumerService() {
-		kafkaConsumer = new KafkaDataSource().getConsumer(LinkedLogics.getApplicationName());
+		kafkaConsumer = new KafkaConnectionService().getConsumer(LinkedLogics.getApplicationName());
 	}
 	
 	@Override

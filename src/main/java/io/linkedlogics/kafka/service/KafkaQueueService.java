@@ -12,15 +12,14 @@ import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 
 import io.linkedlogics.service.QueueService;
-import io.linkedlogics.kafka.repository.KafkaDataSource;
 
 public class KafkaQueueService implements QueueService {
 	private ConcurrentHashMap<String, Consumer<String, String>> consumers;
 	private Producer<String, String> producer;
-	private KafkaDataSource kafka;
+	private KafkaConnectionService kafka;
 	
 	public KafkaQueueService() {
-		kafka = new KafkaDataSource();
+		kafka = new KafkaConnectionService();
 		producer = kafka.getProducer();
 		consumers = new ConcurrentHashMap<>();
 	}
