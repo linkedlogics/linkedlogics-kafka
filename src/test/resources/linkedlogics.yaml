@@ -6,3 +6,4 @@ linkedlogics:
   services:
     processor:
       bypass: false
+      timeout: 30

@@ -4,9 +4,10 @@ import java.util.Optional;
 
 import io.linkedlogics.service.config.Config;
 import io.linkedlogics.service.config.Prefix;
+import io.linkedlogics.service.config.ServiceConfig;
 
 @Prefix("kafka")
-public interface KafkaConnectionServiceConfig {
+public interface KafkaConnectionServiceConfig extends ServiceConfig {
 
 	@Config(key = "bootstrap-servers", description = "Kafka bootstrap server list", required = true)
 	public Object getBootstrapServers();
