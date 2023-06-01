@@ -13,19 +13,17 @@ import org.apache.kafka.clients.producer.ProducerConfig;
 
 import io.linkedlogics.LinkedLogics;
 import io.linkedlogics.kafka.service.config.KafkaConnectionServiceConfig;
-import io.linkedlogics.service.ConfigurableService;
 import io.linkedlogics.service.LinkedLogicsService;
+import io.linkedlogics.service.config.ServiceConfiguration;
 
-public class KafkaConnectionService extends ConfigurableService<KafkaConnectionServiceConfig> implements LinkedLogicsService {
+public class KafkaConnectionService implements LinkedLogicsService {
 	
-	public KafkaConnectionService() {
-		super(KafkaConnectionServiceConfig.class);
-	}
+	private KafkaConnectionServiceConfig config = new ServiceConfiguration().getConfig(KafkaConnectionServiceConfig.class);
 	
 	public Producer<String, String> getProducer() {
 		Map<String, Object> props = new HashMap<>();
-		props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, getConfig().getBootstrapServers());
-		props.put(ProducerConfig.ACKS_CONFIG, getConfig().getAckConfig("all"));
+		props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, config.getBootstrapServers());
+		props.put(ProducerConfig.ACKS_CONFIG, config.getAckConfig("all"));
 		props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringSerializer");
 		props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringSerializer");
 		Producer<String, String> producer = new KafkaProducer<>(props);
@@ -34,11 +32,11 @@ public class KafkaConnectionService extends ConfigurableService<KafkaConnectionS
 
 	public Consumer<String, String> getConsumer(String queue) {
 		Map<String, Object> props = new HashMap<>();
-		props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, getConfig().getBootstrapServers());
+		props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, config.getBootstrapServers());
 		props.put(ConsumerConfig.GROUP_ID_CONFIG, LinkedLogics.getApplicationName());
 		props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringDeserializer");
 		props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringDeserializer");
-		getConfig().getMaxPollCount().ifPresent(c -> {
+		config.getMaxPollCount().ifPresent(c -> {
 			props.put(ConsumerConfig.MAX_POLL_RECORDS_CONFIG, c);
 		});
 
