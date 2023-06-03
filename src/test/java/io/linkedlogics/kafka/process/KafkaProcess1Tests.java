@@ -25,7 +25,7 @@ import io.linkedlogics.kafka.service.KafkaServiceConfigurer;
 import io.linkedlogics.model.ProcessDefinition;
 import io.linkedlogics.test.LinkedLogicsExtension;
 import io.linkedlogics.test.LinkedLogicsRegister;
-import io.linkedlogics.test.TestContextService;
+import io.linkedlogics.test.service.TestContextService;
 
 @ExtendWith(LinkedLogicsExtension.class)
 @LinkedLogicsRegister(serviceConfigurerClasses = KafkaServiceConfigurer.class)
@@ -34,7 +34,7 @@ public class KafkaProcess1Tests {
 	@Test
 	public void testScenario1() {
 		long start = System.currentTimeMillis();
-		String contextId = LinkedLogics.start(ContextBuilder.process("SIMPLE_SCENARIO_1").build());
+		String contextId = LinkedLogics.start(ContextBuilder.newContext("SIMPLE_SCENARIO_1").build());
 
 		TestContextService.blockUntil();
 		long finish = System.currentTimeMillis();
@@ -75,7 +75,7 @@ public class KafkaProcess1Tests {
 	@Test
 	public void testScenario2() {
 		long start = System.currentTimeMillis();
-		String contextId = LinkedLogics.start(ContextBuilder.process("SIMPLE_SCENARIO_2").params("list", new ArrayList<>()).build());
+		String contextId = LinkedLogics.start(ContextBuilder.newContext("SIMPLE_SCENARIO_2").params("list", new ArrayList<>()).build());
 		TestContextService.blockUntil();
 		long finish = System.currentTimeMillis();
 		
