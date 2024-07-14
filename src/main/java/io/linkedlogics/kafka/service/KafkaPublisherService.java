@@ -31,7 +31,7 @@ public class KafkaPublisherService implements PublisherService {
 		ObjectMapper mapper = ServiceLocator.getInstance().getMapperService().getMapper();
 		try {
 			ProducerRecord<String, String> record = new ProducerRecord<>(context.getApplication(), context.getKey(), mapper.writeValueAsString(context));
-	        kafkaproducer.send(record);
+			kafkaproducer.send(record);
 	        kafkaproducer.flush();
 		} catch (JsonProcessingException e) {
 			log.error(e.getLocalizedMessage(), e);
